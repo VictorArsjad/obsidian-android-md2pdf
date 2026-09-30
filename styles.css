@@ -1,0 +1,11 @@
+.android-md-pdf-modal .android-md-pdf-dest {
+	opacity: 0.8;
+	font-size: 0.9em;
+	word-break: break-all;
+}
+
+.android-md-pdf-modal .android-md-pdf-status {
+	min-height: 1.4em;
+	font-size: 0.9em;
+	opacity: 0.9;
+}
