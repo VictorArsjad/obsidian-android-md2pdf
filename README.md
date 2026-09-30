@@ -9,6 +9,21 @@ Obsidian plugin that exports the current Markdown note to a **`.pdf` inside the 
 
 ## Install (Android)
 
+### BRAT (recommended)
+
+Install from GitHub with [BRAT](https://github.com/TfTHacker/obsidian42-brat) (works on Android):
+
+1. Install **BRAT** from Community plugins and enable it
+2. Open **BRAT** settings → **Add Beta plugin**
+3. Paste this repository URL:
+
+```text
+https://github.com/VictorArsjad/obsidian-android-md2pdf
+```
+
+4. Enable **Android MD2PDF** under Community plugins
+5. Optional: use BRAT’s **Check for updates** when you want the latest `master`
+
 ### Manual
 
 1. Build or download `main.js`, `manifest.json`, and `styles.css`

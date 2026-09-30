@@ -30396,10 +30396,10 @@ var SPACE = {
   pAfter: 2,
   pMetaAfter: 2.4,
   // following line → first bullet
-  liAfter: 0.8,
-  // between bullets
-  liLine: 4.6,
-  bodyLine: 4.6,
+  liAfter: 0,
+  // between bullets (= liLine; no extra gap)
+  liLine: 5.2,
+  bodyLine: 5.2,
   hrBefore: 2,
   hrAfter: 6,
   bulletIndent: 6,
@@ -30562,7 +30562,7 @@ function drawListItem(state, el, size, lineMm) {
     state.y
   );
   const after = drawRuns(state, runs, textX, state.y, size, lineMm, textWidth);
-  state.y = after - lineMm * 0.4 + SPACE.liAfter;
+  state.y = after + SPACE.liAfter;
 }
 function drawCallout(state, el) {
   var _a2, _b2;

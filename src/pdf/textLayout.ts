@@ -34,9 +34,9 @@ const SPACE = {
 	h4After: 1.4,
 	pAfter: 2.0,
 	pMetaAfter: 2.4, // following line → first bullet
-	liAfter: 0.8, // between bullets
-	liLine: 4.6,
-	bodyLine: 4.6,
+	liAfter: 0, // between bullets (= liLine; no extra gap)
+	liLine: 5.2,
+	bodyLine: 5.2,
 	hrBefore: 2.0,
 	hrAfter: 6.0,
 	bulletIndent: 6,
@@ -244,9 +244,8 @@ function drawListItem(
 
 	// Hanging indent: wrapped lines start at textX, not under the bullet.
 	const after = drawRuns(state, runs, textX, state.y, size, lineMm, textWidth);
-	// drawRuns advances a full line past the last baseline; pull most of that
-	// back so bullets sit closer than body paragraphs.
-	state.y = after - lineMm * 0.4 + SPACE.liAfter;
+	// Keep between-bullet baseline gap equal to wrapped lines inside a bullet.
+	state.y = after + SPACE.liAfter;
 }
 
 function drawCallout(state: LayoutState, el: HTMLElement): void {
