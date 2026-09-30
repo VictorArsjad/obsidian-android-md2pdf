@@ -1,10 +1,10 @@
 {
-	"id": "obsidian-android-md2pdf",
-	"name": "Android MD2PDF",
-	"version": "0.1.0",
-	"minAppVersion": "1.5.0",
-	"description": "Export the current note to a PDF on Android with spacing closer to desktop Export to PDF.",
-	"author": "victor.arsjad",
-	"authorUrl": "https://github.com/VictorArsjad",
-	"isDesktopOnly": false
+  "id": "obsidian-android-md2pdf",
+  "name": "Android MD2PDF",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Export the current note to a PDF on Android with spacing closer to desktop Export to PDF.",
+  "author": "Victor Arsjad",
+  "authorUrl": "https://github.com/VictorArsjad",
+  "isDesktopOnly": false
 }
