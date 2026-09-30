@@ -3,7 +3,7 @@
  * Applied to the offscreen render container (not the live vault UI).
  */
 export const PRINT_CSS = `
-.android-md-pdf-root {
+.android-md2pdf-root {
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
@@ -18,23 +18,23 @@ export const PRINT_CSS = `
   print-color-adjust: exact;
 }
 
-.android-md-pdf-root *,
-.android-md-pdf-root *::before,
-.android-md-pdf-root *::after {
+.android-md2pdf-root *,
+.android-md2pdf-root *::before,
+.android-md2pdf-root *::after {
   box-sizing: border-box;
 }
 
-.android-md-pdf-root p {
+.android-md2pdf-root p {
   margin-top: 0;
   margin-bottom: 0.85em;
 }
 
-.android-md-pdf-root h1,
-.android-md-pdf-root h2,
-.android-md-pdf-root h3,
-.android-md-pdf-root h4,
-.android-md-pdf-root h5,
-.android-md-pdf-root h6 {
+.android-md2pdf-root h1,
+.android-md2pdf-root h2,
+.android-md2pdf-root h3,
+.android-md2pdf-root h4,
+.android-md2pdf-root h5,
+.android-md2pdf-root h6 {
   color: #000000;
   font-weight: 600;
   line-height: 1.3;
@@ -43,66 +43,66 @@ export const PRINT_CSS = `
   page-break-after: avoid;
 }
 
-.android-md-pdf-root h1 { font-size: 1.7em; margin-top: 0; }
-.android-md-pdf-root h2 { font-size: 1.4em; }
-.android-md-pdf-root h3 { font-size: 1.2em; }
-.android-md-pdf-root h4 { font-size: 1.1em; }
-.android-md-pdf-root h5,
-.android-md-pdf-root h6 { font-size: 1em; }
+.android-md2pdf-root h1 { font-size: 1.7em; margin-top: 0; }
+.android-md2pdf-root h2 { font-size: 1.4em; }
+.android-md2pdf-root h3 { font-size: 1.2em; }
+.android-md2pdf-root h4 { font-size: 1.1em; }
+.android-md2pdf-root h5,
+.android-md2pdf-root h6 { font-size: 1em; }
 
-.android-md-pdf-root > :first-child {
+.android-md2pdf-root > :first-child {
   margin-top: 0;
 }
 
-.android-md-pdf-root ul,
-.android-md-pdf-root ol {
+.android-md2pdf-root ul,
+.android-md2pdf-root ol {
   margin-top: 0;
   margin-bottom: 0.85em;
   padding-left: 0.25em;
   list-style: none;
 }
 
-.android-md-pdf-root li {
+.android-md2pdf-root li {
   margin-top: 0.15em;
   margin-bottom: 0.35em;
   display: block;
   list-style: none;
 }
 
-.android-md-pdf-root li > .android-md-pdf-marker {
+.android-md2pdf-root li > .android-md2pdf-marker {
   display: inline;
   font-weight: 700;
   margin-right: 0.35em;
   color: #000000 !important;
 }
 
-.android-md-pdf-root li > p {
+.android-md2pdf-root li > p {
   margin-top: 0.15em;
   margin-bottom: 0.15em;
 }
 
-.android-md-pdf-root blockquote {
+.android-md2pdf-root blockquote {
   margin: 0.85em 0;
   padding: 0 0 0 0.9em;
   border-left: 3px solid #cccccc;
   color: #333333;
 }
 
-.android-md-pdf-root hr {
+.android-md2pdf-root hr {
   border: none;
   border-top: 1px solid #cccccc;
   margin: 1.1em 0;
 }
 
-.android-md-pdf-root a {
+.android-md2pdf-root a {
   color: #000000;
   text-decoration: underline;
 }
 
-.android-md-pdf-root strong { font-weight: 700; }
-.android-md-pdf-root em { font-style: italic; }
+.android-md2pdf-root strong { font-weight: 700; }
+.android-md2pdf-root em { font-style: italic; }
 
-.android-md-pdf-root code {
+.android-md2pdf-root code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 0.9em;
   background: #f2f2f2;
@@ -110,7 +110,7 @@ export const PRINT_CSS = `
   border-radius: 3px;
 }
 
-.android-md-pdf-root pre {
+.android-md2pdf-root pre {
   margin: 0.85em 0;
   padding: 0.75em 0.9em;
   background: #f5f5f5;
@@ -120,13 +120,13 @@ export const PRINT_CSS = `
   word-break: break-word;
 }
 
-.android-md-pdf-root pre code {
+.android-md2pdf-root pre code {
   background: transparent;
   padding: 0;
   font-size: 0.85em;
 }
 
-.android-md-pdf-root table {
+.android-md2pdf-root table {
   width: 100%;
   border-collapse: collapse;
   margin: 0.85em 0;
@@ -134,12 +134,12 @@ export const PRINT_CSS = `
   color: #000000 !important;
 }
 
-.android-md-pdf-root th,
-.android-md-pdf-root td,
-.android-md-pdf-root thead th,
-.android-md-pdf-root thead td,
-.android-md-pdf-root tbody th,
-.android-md-pdf-root tbody td {
+.android-md2pdf-root th,
+.android-md2pdf-root td,
+.android-md2pdf-root thead th,
+.android-md2pdf-root thead td,
+.android-md2pdf-root tbody th,
+.android-md2pdf-root tbody td {
   border: 1px solid #cccccc !important;
   padding: 0.4em 0.55em;
   text-align: left;
@@ -148,9 +148,9 @@ export const PRINT_CSS = `
   -webkit-text-fill-color: #000000 !important;
 }
 
-.android-md-pdf-root th,
-.android-md-pdf-root thead th,
-.android-md-pdf-root thead td {
+.android-md2pdf-root th,
+.android-md2pdf-root thead th,
+.android-md2pdf-root thead td {
   background: #f2f2f2 !important;
   font-weight: 700 !important;
   color: #000000 !important;
@@ -158,19 +158,19 @@ export const PRINT_CSS = `
   opacity: 1 !important;
 }
 
-.android-md-pdf-root img {
+.android-md2pdf-root img {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0.75em 0;
 }
 
-.android-md-pdf-root .internal-embed {
+.android-md2pdf-root .internal-embed {
   display: block;
   margin: 0.75em 0;
 }
 
-.android-md-pdf-root .callout {
+.android-md2pdf-root .callout {
   margin: 0.85em 0;
   padding: 0.75em 0.9em;
   border-left: 4px solid #888888;
@@ -178,36 +178,36 @@ export const PRINT_CSS = `
   border-radius: 2px;
 }
 
-.android-md-pdf-root .callout-title {
+.android-md2pdf-root .callout-title {
   font-weight: 600;
   margin-bottom: 0.35em;
 }
 
-.android-md-pdf-root .callout-content > :first-child {
+.android-md2pdf-root .callout-content > :first-child {
   margin-top: 0;
 }
 
-.android-md-pdf-root .callout-content > :last-child {
+.android-md2pdf-root .callout-content > :last-child {
   margin-bottom: 0;
 }
 
-.android-md-pdf-root .footnote-backref,
-.android-md-pdf-root .footnote-link {
+.android-md2pdf-root .footnote-backref,
+.android-md2pdf-root .footnote-link {
   text-decoration: none;
 }
 
-.android-md-pdf-root section[data-footnotes],
-.android-md-pdf-root .footnotes {
+.android-md2pdf-root section[data-footnotes],
+.android-md2pdf-root .footnotes {
   margin-top: 1.5em;
   padding-top: 0.75em;
   border-top: 1px solid #cccccc;
   font-size: 0.9em;
 }
 
-.android-md-pdf-root .cm-embed-block,
-.android-md-pdf-root .edit-block-button,
-.android-md-pdf-root .markdown-embed-link,
-.android-md-pdf-root .file-embed-link {
+.android-md2pdf-root .cm-embed-block,
+.android-md2pdf-root .edit-block-button,
+.android-md2pdf-root .markdown-embed-link,
+.android-md2pdf-root .file-embed-link {
   display: none !important;
 }
 `;

@@ -1,5 +1,5 @@
 import { App, PluginSettingTab, Setting } from "obsidian";
-import type AndroidMdPdfPlugin from "./main";
+import type AndroidMd2PdfPlugin from "./main";
 
 export interface PdfPluginSettings {
 	exportFolder: string;
@@ -14,9 +14,9 @@ export const DEFAULT_SETTINGS: PdfPluginSettings = {
 };
 
 export class PdfSettingTab extends PluginSettingTab {
-	plugin: AndroidMdPdfPlugin;
+	plugin: AndroidMd2PdfPlugin;
 
-	constructor(app: App, plugin: AndroidMdPdfPlugin) {
+	constructor(app: App, plugin: AndroidMd2PdfPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -25,7 +25,7 @@ export class PdfSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		containerEl.createEl("h2", { text: "Android MD PDF" });
+		containerEl.createEl("h2", { text: "Android MD2PDF" });
 
 		new Setting(containerEl)
 			.setName("Export folder")

@@ -22,18 +22,18 @@ interface LayoutState {
 
 const FONT = "helvetica";
 
-	/** Resume-oriented vertical rhythm (mm). */
+	/** Document vertical rhythm (mm). */
 const SPACE = {
 	h1Before: 0,
 	h1After: 2.5,
 	h2Before: 1.0,
 	h2After: 1.8, // heading → paragraph / table
-	h3Before: 0.8, // section heading → job title
-	h3After: 2.2, // job title → date line
+	h3Before: 0.8, // section heading → subheading
+	h3After: 2.2, // subheading → following line
 	h4Before: 1.5,
 	h4After: 1.4,
 	pAfter: 2.0,
-	pMetaAfter: 2.4, // date line → first bullet
+	pMetaAfter: 2.4, // following line → first bullet
 	liAfter: 0.8, // between bullets
 	liLine: 4.6,
 	bodyLine: 4.6,
@@ -45,7 +45,7 @@ const SPACE = {
 };
 
 /**
- * Build a selectable, ATS-friendly PDF by drawing real text (not images).
+ * Build a selectable, selectable PDF by drawing real text (not images).
  */
 export async function layoutDomToPdf(
 	root: HTMLElement,
@@ -226,7 +226,7 @@ function drawListItem(
 	size: number,
 	lineMm: number,
 ): void {
-	const markerEl = el.querySelector(":scope > .android-md-pdf-marker");
+	const markerEl = el.querySelector(":scope > .android-md2pdf-marker");
 	const markerText = markerEl?.textContent?.trim() || "•";
 	if (markerEl) markerEl.remove();
 
@@ -385,7 +385,7 @@ function drawImage(state: LayoutState, img: HTMLImageElement): void {
 		state.doc.addImage(src, format, state.margin, state.y, w, h);
 		state.y += h + 3;
 	} catch (e) {
-		console.warn("[Android MD PDF] image add failed", e);
+		console.warn("[Android MD2PDF] image add failed", e);
 	}
 }
 
@@ -600,7 +600,7 @@ function isEffectivelyEmpty(el: HTMLElement): boolean {
 	return true;
 }
 
-/** Map characters Helvetica often lacks into ATS-safe ASCII-ish equivalents. */
+/** Map characters Helvetica often lacks into core-font-safe ASCII-ish equivalents. */
 function normalizeText(input: string): string {
 	return input
 		.replace(/\u00a0/g, " ")

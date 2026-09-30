@@ -41,7 +41,7 @@ function materializeListMarkers(root: HTMLElement): void {
 		);
 
 		items.forEach((li, index) => {
-			if (li.querySelector(":scope > .android-md-pdf-marker")) return;
+			if (li.querySelector(":scope > .android-md2pdf-marker")) return;
 
 			li.style.listStyle = "none";
 			li.style.display = "block";
@@ -49,7 +49,7 @@ function materializeListMarkers(root: HTMLElement): void {
 			li.style.marginLeft = "0";
 
 			const marker = document.createElement("span");
-			marker.className = "android-md-pdf-marker";
+			marker.className = "android-md2pdf-marker";
 			marker.textContent = isOrdered ? `${index + 1}. ` : "• ";
 			marker.style.cssText =
 				"display:inline;font-weight:700;margin-right:0.35em;color:#000;";
@@ -130,7 +130,7 @@ async function inlineImages(
 			img.src = arrayBufferToDataUrl(binary, mime);
 			img.removeAttribute("data-vault-path");
 		} catch (error) {
-			console.warn("[Android MD PDF] Failed to inline image", src, error);
+			console.warn("[Android MD2PDF] Failed to inline image", src, error);
 		}
 	}
 }
@@ -143,7 +143,7 @@ function flattenWikilinks(root: HTMLElement): void {
 	for (const link of links) {
 		const text = (link.textContent || "").trim();
 		const span = document.createElement("span");
-		span.className = "android-md-pdf-wikilink";
+		span.className = "android-md2pdf-wikilink";
 		span.textContent = text || link.getAttribute("data-href") || "";
 		link.replaceWith(span);
 	}

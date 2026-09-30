@@ -1,10 +1,8 @@
-# Android MD PDF
+# Android MD2PDF
 
 Obsidian plugin that exports the current Markdown note to a **`.pdf` inside the vault** on Android.
 
-Built for **resume / CV export**:
-
-- Real **selectable text** (ATS-friendly text layer — not a screenshot)
+- Real **selectable text** (not a screenshot)
 - No sidebar / live preview
 - Light pages only
 - Command → modal → Export; settings are saved and reused
@@ -17,10 +15,10 @@ Built for **resume / CV export**:
 2. Copy them into:
 
 ```text
-<vault>/.obsidian/plugins/obsidian-android-md-pdf/
+<vault>/.obsidian/plugins/obsidian-android-md2pdf/
 ```
 
-3. Reload Obsidian → enable **Android MD PDF** under Community plugins
+3. Reload Obsidian → enable **Android MD2PDF** under Community plugins
 
 ### Local build → vault
 
@@ -33,11 +31,11 @@ npm run build
 ## Usage
 
 1. Open a Markdown note
-2. Command palette → **Android MD PDF: Export note to PDF**
+2. Command palette → **Android MD2PDF: Export note to PDF**
 3. Confirm destination → **Export**
 
 Default destination: **beside the note**  
-Example: `Growth/Applications/Jetbrains/cv.md` → `Growth/Applications/Jetbrains/cv.pdf`
+Example: `Notes/My Note.md` → `Notes/My Note.pdf`
 
 ## Settings (persisted)
 
@@ -51,16 +49,16 @@ Example: `Growth/Applications/Jetbrains/cv.md` → `Growth/Applications/Jetbrain
 
 Headings, paragraphs, lists, tables (text), code blocks, callouts (as text), wikilinks as text, footnotes, images (embedded when present).
 
-Some Unicode punctuation is normalized for PDF core fonts (e.g. em dash → `-`) so Helvetica stays reliable for ATS parsers.
+Some Unicode punctuation is normalized for PDF core fonts (e.g. em dash → `-`) so Helvetica renders reliably.
 
 Out of scope: math, dark themes, live preview, Chrome/print handoff.
 
 ## QA
 
-- Resume target: `cv_victor_arsjad.md`
 - Fixture: [`fixtures/feature-kitchen-sink.md`](fixtures/feature-kitchen-sink.md)
+- Optional layout sample: `node scripts/generate-sample-pdf.mjs` → `fixtures/sample-output/`
 
-After export: select text in the PDF viewer and paste into a text editor. If that works, ATS can usually read it too.
+After export: select text in the PDF viewer and paste into a text editor to confirm the text layer is real.
 
 ## Develop
 

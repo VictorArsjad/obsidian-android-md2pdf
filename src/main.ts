@@ -6,7 +6,7 @@ import {
 } from "./settings";
 import { ExportModal } from "./ui/ExportModal";
 
-export default class AndroidMdPdfPlugin extends Plugin {
+export default class AndroidMd2PdfPlugin extends Plugin {
 	settings: PdfPluginSettings = { ...DEFAULT_SETTINGS };
 
 	async onload(): Promise<void> {

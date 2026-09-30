@@ -23,7 +23,7 @@ export class ExportModal extends Modal {
 	onOpen(): void {
 		const { contentEl } = this;
 		contentEl.empty();
-		contentEl.addClass("android-md-pdf-modal");
+		contentEl.addClass("android-md2pdf-modal");
 
 		contentEl.createEl("h2", { text: "Export to PDF" });
 		contentEl.createEl("p", {
@@ -32,12 +32,12 @@ export class ExportModal extends Modal {
 
 		const dest = resolvePdfPath(this.file, this.settings);
 		contentEl.createEl("p", {
-			cls: "android-md-pdf-dest",
+			cls: "android-md2pdf-dest",
 			text: `Destination: ${dest}`,
 		});
 
 		this.statusEl = contentEl.createEl("p", {
-			cls: "android-md-pdf-status",
+			cls: "android-md2pdf-status",
 			text: "",
 		});
 
@@ -96,7 +96,7 @@ export class ExportModal extends Modal {
 
 			this.close();
 		} catch (error) {
-			console.error("[Android MD PDF] Export failed", error);
+			console.error("[Android MD2PDF] Export failed", error);
 			const message =
 				error instanceof Error ? error.message : String(error);
 			this.setStatus(message);

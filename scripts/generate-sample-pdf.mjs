@@ -1,5 +1,5 @@
 /**
- * Generate a sample resume PDF with the same spacing rules as the plugin
+ * Generate a sample PDF with the same spacing rules as the plugin
  * (no Obsidian runtime required). Used to visually QA layout.
  *
  * Usage: node scripts/generate-sample-pdf.mjs
@@ -46,120 +46,40 @@ function ensure(need) {
 	if (y + need > PAGE.heightMm - margin) {
 		doc.addPage();
 		fill();
-		y = margin;
-	}
-}
-function setFont(size, bold = false, italic = false) {
-	let style = "normal";
-	if (bold && italic) style = "bolditalic";
-	else if (bold) style = "bold";
-	else if (italic) style = "italic";
-	doc.setFont(FONT, style);
-	doc.setFontSize(size);
-	doc.setTextColor(0, 0, 0);
-}
-function drawWrapped(text, x, size, lineMm, maxW, bold = false, italic = false) {
-	setFont(size, bold, italic);
-	const lines = doc.splitTextToSize(text, maxW);
-	for (const line of lines) {
-		ensure(lineMm);
-		doc.text(line, x, y);
-		y += lineMm;
-	}
-}
-function hr() {
-	ensure(SPACE.hrBefore + SPACE.hrAfter + 2);
-	y += SPACE.hrBefore;
-	doc.setDrawColor(180);
-	doc.setLineWidth(0.25);
-	doc.line(margin, y, margin + contentWidth, y);
-	y += SPACE.hrAfter;
-}
-function h2(text) {
-	ensure(SPACE.h2Before + 8);
-	y += SPACE.h2Before;
-	setFont(14, true);
-	doc.text(text, margin, y);
-	y += 6 + SPACE.h2After;
-}
-function h3(text) {
-	ensure(SPACE.h3Before + 8);
-	y += SPACE.h3Before;
-	setFont(12, true);
-	doc.text(text, margin, y);
-	y += 5.2 + SPACE.h3After;
-}
-function p(text) {
-	drawWrapped(text, margin, 10, SPACE.bodyLine, contentWidth);
-	y += SPACE.pAfter;
-}
-function meta(text) {
-	drawWrapped(text, margin, 10, SPACE.bodyLine, contentWidth, false, true);
-	y += SPACE.pMetaAfter;
-}
-function li(text) {
-	ensure(SPACE.liLine + SPACE.liAfter);
-	setFont(10);
-	doc.text("•", margin + SPACE.bulletPad, y);
-	const x = margin + SPACE.bulletIndent;
-	const lines = doc.splitTextToSize(text, contentWidth - SPACE.bulletIndent);
-	for (let i = 0; i < lines.length; i++) {
-		if (i > 0) {
-			y += SPACE.liLine;
-			ensure(SPACE.liLine);
-		}
-		doc.text(lines[i], x, y);
-	}
-	y += SPACE.liLine * 0.6 + SPACE.liAfter;
-}
-
-fill();
 
 setFont(18, true);
-doc.text("Victor Arsjad", margin, y);
+doc.text("Sample Note", margin, y);
 y += 7 + SPACE.h1After;
 
-setFont(10, true);
-const tagline =
-	"Senior Software Engineer | JVM & Enterprise Backend Systems | Kubernetes & Cloud Infrastructure Jakarta, Indonesia · linkedin.com/in/victorarsjad";
-drawWrapped(tagline, margin, 10, SPACE.bodyLine, contentWidth, true, false);
-y += SPACE.pAfter;
-
-hr();
-h2("Summary");
 p(
-	"Senior Software Engineer with 8 years of experience building enterprise backend systems on the JVM (Java, Kotlin, Spring Boot) and Go, with deep ownership of architecture, Kubernetes-based production infrastructure, and reliability engineering. Led architecture and cross-team alignment for a high-correctness enterprise backend platform, authoring ADRs and driving rollout strategy across more than three teams.",
-);
-hr();
-h2("Experience");
-h3("Senior Backend Engineer - Gojek (GoTo)");
-meta("Oct 2020 - Present · Greater Jakarta Area, Indonesia");
-li(
-	"Own architecture and full lifecycle of Curator, an enterprise backend platform for merchant legal entities, contracts, and documents; authored ADRs and drove technical alignment across more than three teams on architecture, tradeoffs, and rollout strategy.",
-);
-li(
-	"Own Kubernetes deployment and configuration for production services - resource manifests, horizontal pod autoscaling (HPA), CPU/memory allocation, and pod-count tuning - to ensure reliable serving capacity under production load.",
-);
-li(
-	"Redesigned the PTEN government registration integration from FTP batch processing to a real-time HTTP API, cutting merchant activation time from ~1 day to 3 minutes and contributing to a 20% increase in conversion.",
+	"This is a short sample used to check heading, paragraph, list, and divider spacing in the PDF exporter.",
 );
 
 hr();
-h2("Additional Information");
-li(
-	"AI-Assisted Development - Use Cursor and Claude Code to accelerate delivery while applying rigorous review.",
+h2("Overview");
+p(
+	"Export turns the rendered Markdown structure into a selectable PDF text layer. Adjust SPACE values in the plugin source, rebuild, and compare this sample output when iterating on layout.",
 );
-li("Python - Used for internal scripting and automation (not backend frameworks).");
-li("Open Source - Active GitHub and open-source contributor.");
-li("Languages - English (Professional working proficiency), Bahasa Indonesia (Native).");
+hr();
+h2("Details");
+h3("Layout checklist");
+meta("Used for local visual QA of vertical rhythm");
+li("Headings should sit close to the following paragraph without overlapping.");
+li("List items should be readable as separate bullets without large empty bands.");
+li("Dividers should leave clear space before the next section heading.");
 
-const pdfPath = path.join(outDir, "cv-spacing-sample.pdf");
+hr();
+h2("Notes");
+li("Keep sample content generic so layout QA does not depend on a specific vault note.");
+li("Open the generated PNG after running this script to inspect spacing quickly.");
+
+const pdfPath = path.join(outDir, "spacing-sample.pdf");
 const buf = Buffer.from(doc.output("arraybuffer"));
 fs.writeFileSync(pdfPath, buf);
 console.log("Wrote", pdfPath);
 
 // Rasterize page 1 for visual QA
-const pngPath = path.join(outDir, "cv-spacing-sample.png");
+const pngPath = path.join(outDir, "spacing-sample.png");
 const { spawnSync } = await import("child_process");
 const r = spawnSync(
 	"magick",

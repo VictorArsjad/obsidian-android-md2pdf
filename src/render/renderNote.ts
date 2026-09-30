@@ -20,11 +20,11 @@ export async function renderNoteToDom(
 	component.load();
 
 	const styleEl = document.createElement("style");
-	styleEl.setAttribute("data-android-md-pdf", "print-css");
+	styleEl.setAttribute("data-android-md2pdf", "print-css");
 	styleEl.textContent = PRINT_CSS;
 	document.head.appendChild(styleEl);
 
-	const host = document.body.createDiv({ cls: "android-md-pdf-host" });
+	const host = document.body.createDiv({ cls: "android-md2pdf-host" });
 	host.style.cssText = [
 		"position: fixed",
 		"left: -10000px",
@@ -38,7 +38,7 @@ export async function renderNoteToDom(
 		"z-index: -1",
 	].join(";");
 
-	const root = host.createDiv({ cls: "android-md-pdf-root markdown-preview-view markdown-rendered" });
+	const root = host.createDiv({ cls: "android-md2pdf-root markdown-preview-view markdown-rendered" });
 	root.style.width = "100%";
 
 	const markdown = await app.vault.read(file);

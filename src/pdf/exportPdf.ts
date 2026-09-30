@@ -12,7 +12,7 @@ export interface ExportResult {
 }
 
 /**
- * Render the active note and write a selectable, ATS-friendly PDF
+ * Render the active note and write a selectable, selectable PDF
  * (real text layer via jsPDF — not a screenshot).
  */
 export async function exportNoteToPdf(
